@@ -50,6 +50,9 @@ const CAR4_LAYOUT = [
   [{ id: 3 }, { id: 4 }],
 ];
 
+const TRIP_DAY = 12;
+const DEPART_AT = new Date('2026-09-12T10:00:00+07:00');
+
 const STORAGE_KEY = 'burmese-fam-trip-seats';
 let selectedSeats = loadSelections();
 let currentSlide = 0;
@@ -256,9 +259,71 @@ function initGallery() {
   });
 }
 
+function renderCalendar() {
+  const grid = document.getElementById('tripCalendar');
+  if (!grid) return;
+
+  const year = 2026;
+  const month = 8;
+  const firstWeekday = (new Date(year, month, 1).getDay() + 6) % 7;
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  for (let i = 0; i < firstWeekday; i += 1) {
+    const blank = document.createElement('span');
+    blank.className = 'cal-day is-empty';
+    grid.appendChild(blank);
+  }
+
+  for (let day = 1; day <= daysInMonth; day += 1) {
+    const cell = document.createElement('span');
+    cell.className = 'cal-day' + (day === TRIP_DAY ? ' is-trip' : '');
+    cell.textContent = String(day);
+    if (day === TRIP_DAY) cell.setAttribute('aria-label', 'Trip day, 12 September');
+    grid.appendChild(cell);
+  }
+}
+
+function pad(value) {
+  return String(value).padStart(2, '0');
+}
+
+function renderCountdown() {
+  const root = document.getElementById('departCountdown');
+  if (!root) return;
+
+  const diff = DEPART_AT.getTime() - Date.now();
+  if (diff <= 0) {
+    root.innerHTML = '<p class="countdown-done">We\'re on the road 🚐</p>';
+    return false;
+  }
+
+  const totalSeconds = Math.floor(diff / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  root.innerHTML = `
+    <div class="count-unit"><span class="count-num">${days}</span><span class="count-label">Days</span></div>
+    <div class="count-unit"><span class="count-num">${pad(hours)}</span><span class="count-label">Hours</span></div>
+    <div class="count-unit"><span class="count-num">${pad(minutes)}</span><span class="count-label">Mins</span></div>
+    <div class="count-unit"><span class="count-num">${pad(seconds)}</span><span class="count-label">Secs</span></div>
+  `;
+  return true;
+}
+
+function initCountdown() {
+  if (!renderCountdown()) return;
+  const timer = setInterval(() => {
+    if (!renderCountdown()) clearInterval(timer);
+  }, 1000);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   renderSeatPlan('bus18Seats', BUS18_LAYOUT, 'bus18');
   renderSeatPlan('car4Seats', CAR4_LAYOUT, 'car4');
+  renderCalendar();
+  initCountdown();
   initDeck();
   initGallery();
 });

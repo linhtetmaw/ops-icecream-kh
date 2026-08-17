@@ -108,11 +108,14 @@ body {
   position: relative;
 }
 
-.slide-title,
-.slide-end {
+.slide-title {
   min-height: 100vh;
   align-items: center;
   padding: 2rem 3rem 3rem;
+}
+
+.slide-end {
+  padding: 1.25rem 3rem 3.5rem;
 }
 
 .slide-inner {
@@ -183,6 +186,117 @@ body {
   letter-spacing: 0.08em;
   color: var(--amber-glow);
   margin-bottom: 1.5rem;
+}
+
+.trip-when {
+  display: grid;
+  grid-template-columns: minmax(220px, 260px) minmax(240px, 1fr);
+  gap: 1rem;
+  max-width: 640px;
+  margin: 1.35rem auto 0;
+  text-align: left;
+}
+
+.cal-card,
+.countdown-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 0.85rem 0.9rem 0.95rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+}
+
+.cal-header,
+.countdown-kicker {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.55rem;
+}
+
+.cal-weekdays,
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.15rem;
+  text-align: center;
+}
+
+.cal-weekdays span {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  padding-bottom: 0.2rem;
+}
+
+.cal-day {
+  font-size: 0.78rem;
+  line-height: 1.9;
+  border-radius: 7px;
+  color: var(--text);
+}
+
+.cal-day.is-empty { visibility: hidden; }
+
+.cal-day.is-trip {
+  background: var(--amber);
+  color: #1a2414;
+  font-weight: 700;
+  box-shadow: 0 0 0 3px rgba(232, 168, 56, 0.28);
+}
+
+.cal-caption,
+.countdown-when {
+  margin-top: 0.55rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.countdown-when {
+  margin-top: 0;
+  margin-bottom: 0.7rem;
+  color: var(--cream);
+  font-weight: 500;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.4rem;
+}
+
+.count-unit {
+  background: rgba(15, 36, 25, 0.45);
+  border-radius: 8px;
+  padding: 0.45rem 0.2rem 0.4rem;
+  text-align: center;
+}
+
+.count-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 3vw, 1.55rem);
+  color: var(--amber-glow);
+  line-height: 1.1;
+}
+
+.count-label {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.countdown-done {
+  font-size: 1rem;
+  color: var(--amber-glow);
+  text-align: center;
+  padding: 0.75rem 0;
 }
 
 .slide-footer {
@@ -385,10 +499,9 @@ body {
 
 .map-wrapper iframe {
   width: 100%;
-  height: min(38vh, 340px);
+  height: min(50vh, 450px);
   border: 0;
   display: block;
-  filter: saturate(0.85) brightness(0.9);
 }
 
 /* Seats */
@@ -714,7 +827,13 @@ body {
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .slide { padding: 1rem 1.25rem 1.25rem; }
-  .slide-title, .slide-end { padding: 1.5rem 1.25rem 2.5rem; }
+  .slide-title { padding: 1.5rem 1.25rem 2.5rem; }
+  .slide-end { padding: 1rem 1.25rem 2.5rem; }
+
+  .trip-when {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
 
   .gallery { grid-template-columns: repeat(2, 1fr); }
 
