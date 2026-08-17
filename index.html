@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burmese Fam Trip &amp; Lin's Birthday</title>
+  <meta name="description" content="Mountain camping trip — Burmese Fam Trip & Lin's Birthday">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="sky" aria-hidden="true"></div>
+  <div class="mountains" aria-hidden="true">
+    <div class="mountain m1"></div>
+    <div class="mountain m2"></div>
+    <div class="mountain m3"></div>
+  </div>
+  <div class="trees" aria-hidden="true"></div>
+
+  <div class="deck" id="deck">
+    <!-- Slide 1: Title -->
+    <section class="slide slide-title" id="slide-1" data-slide="1">
+      <div class="slide-inner">
+        <span class="slide-kicker">🏕 Mountain Rave</span>
+        <h1>Operation Ice Cream</h1>
+        <p class="slide-lead">Pack your bags, breathe the mountain air, and celebrate Lin's birthday under the stars.</p>
+        <div class="campfire" aria-hidden="true">
+          <div class="flame f1"></div>
+          <div class="flame f2"></div>
+          <div class="flame f3"></div>
+          <div class="logs"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2: About -->
+    <section class="slide" id="slide-2" data-slide="2">
+      <div class="slide-inner">
+        <p class="slide-label">01 · About</p>
+        <h2 class="slide-heading">About the Trip</h2>
+        <div class="slide-body prose" id="aboutContent">
+          <p class="placeholder-notice">📝 Trip details coming soon — replace this section with your story.</p>
+          <p>
+            We're heading into the mountains for a weekend of camping, good food, and great company.
+            This trip celebrates Lin's birthday and brings the Burmese fam together for an unforgettable
+            outdoor adventure — fresh air, campfire nights, and memories that last.
+          </p>
+          <p>
+            More details about dates, what to bring, and the full plan will be updated here shortly.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3: Gallery -->
+    <section class="slide" id="slide-3" data-slide="3">
+      <div class="slide-inner slide-inner-wide">
+        <p class="slide-label">02 · Gallery</p>
+        <h2 class="slide-heading">Location Gallery</h2>
+        <p class="slide-sub">Photos of our mountain destination — placeholders for now.</p>
+        <div class="gallery" id="galleryGrid">
+          <figure class="gallery-item" data-index="0">
+            <div class="gallery-placeholder" style="--hue: 140"><span>🏔</span></div>
+          </figure>
+          <figure class="gallery-item" data-index="1">
+            <div class="gallery-placeholder" style="--hue: 30"><span>⛺</span></div>
+          </figure>
+          <figure class="gallery-item" data-index="2">
+            <div class="gallery-placeholder" style="--hue: 200"><span>🌲</span></div>
+          </figure>
+          <figure class="gallery-item" data-index="3">
+            <div class="gallery-placeholder" style="--hue: 25"><span>🔥</span></div>
+          </figure>
+          <figure class="gallery-item" data-index="4">
+            <div class="gallery-placeholder" style="--hue: 160"><span>🌄</span></div>
+          </figure>
+          <figure class="gallery-item" data-index="5">
+            <div class="gallery-placeholder" style="--hue: 45"><span>🍲</span></div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4: Map -->
+    <section class="slide" id="slide-4" data-slide="4">
+      <div class="slide-inner slide-inner-wide">
+        <p class="slide-label">03 · Location</p>
+        <h2 class="slide-heading">Where We're Going</h2>
+        <div class="map-wrapper">
+          <iframe
+            id="mapFrame"
+            title="Trip location map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2799160891!2d98.320076!3d18.788343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da3a7e3498a9f1%3A0x3000844d1a4912f!2sDoi%20Inthanon%20National%20Park!5e0!3m2!1sen!2sth!4v1700000000000!5m2!1sen!2sth"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5: Seats -->
+    <section class="slide" id="slide-5" data-slide="5">
+      <div class="slide-inner slide-inner-wide">
+        <p class="slide-label">04 · Transport</p>
+        <h2 class="slide-heading">Seat Plans</h2>
+        <p class="slide-sub">Assigned seating for the trip.</p>
+        <div class="seat-plans">
+          <div class="seat-plan-card">
+            <h3>🚐 Main Bus — 18 Seats</h3>
+            <div class="vehicle">
+              <div class="seat-rows" id="bus18Seats"></div>
+            </div>
+          </div>
+          <div class="seat-plan-card">
+            <h3>🚙 Support Car — 4 Seats</h3>
+            <div class="vehicle">
+              <div class="seat-rows" id="car4Seats"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 6: Agenda -->
+    <section class="slide" id="slide-6" data-slide="6">
+      <div class="slide-inner">
+        <p class="slide-label">05 · Schedule</p>
+        <h2 class="slide-heading">Trip Agenda</h2>
+        <div class="slide-body" id="agendaContent">
+          <p class="placeholder-notice">📝 Full agenda coming soon — replace with your schedule.</p>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-time">Day 1 · Morning</div>
+              <div class="timeline-body">
+                <strong>Depart &amp; Hit the Road</strong>
+                <p>Meet at pickup point, board the bus, head toward the mountains.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">Day 1 · Afternoon</div>
+              <div class="timeline-body">
+                <strong>Arrive &amp; Set Up Camp</strong>
+                <p>Check in, pitch tents, explore the surroundings.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">Day 1 · Evening</div>
+              <div class="timeline-body">
+                <strong>Campfire &amp; Lin's Birthday 🎂</strong>
+                <p>Dinner, birthday celebration, stories under the stars.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">Day 2</div>
+              <div class="timeline-body">
+                <strong>Explore &amp; Return</strong>
+                <p>Morning hike, pack up, head home with full hearts.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 7: Telegram -->
+    <section class="slide slide-end" id="slide-7" data-slide="7">
+      <div class="slide-inner">
+        <p class="slide-label">06 · Stay Connected</p>
+        <h2 class="slide-heading">Join Our Telegram</h2>
+        <p class="slide-sub">Get announcements, share photos, and coordinate with the group.</p>
+        <div class="telegram-widget">
+          <div class="telegram-icon">
+            <svg viewBox="0 0 24 24" width="56" height="56" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+            </svg>
+          </div>
+          <a
+            href="https://t.me/your_channel_here"
+            class="btn btn-telegram"
+            id="telegramLink"
+            target="_blank"
+            rel="noopener noreferrer">
+            Join Telegram Channel
+          </a>
+        </div>
+        <p class="slide-footer">Made with ❤️ for the Burmese Fam · ⛰</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Deck controls -->
+  <div class="deck-ui" aria-hidden="false">
+    <button class="deck-arrow deck-prev" id="deckPrev" aria-label="Previous slide">&#8249;</button>
+    <button class="deck-arrow deck-next" id="deckNext" aria-label="Next slide">&#8250;</button>
+    <div class="deck-progress">
+      <div class="deck-dots" id="deckDots"></div>
+      <span class="deck-count" id="deckCount">1 / 7</span>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous">&#8249;</button>
+    <button class="lightbox-next" id="lightboxNext" aria-label="Next">&#8250;</button>
+    <div class="lightbox-content" id="lightboxContent"></div>
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
