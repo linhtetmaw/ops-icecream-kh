@@ -271,14 +271,73 @@ body {
   color: var(--text);
 }
 
-.placeholder-notice {
+.budget-table-wrap {
+  margin: 0.85rem 0 1.1rem;
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+}
+
+.budget-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.budget-table th,
+.budget-table td {
+  padding: 0.7rem 1rem;
+  text-align: left;
+}
+
+.budget-table th:last-child,
+.budget-table td:last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.budget-table thead th {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
   background: rgba(232, 168, 56, 0.08);
-  border-left: 3px solid var(--amber);
-  padding: 0.5rem 0.75rem;
-  border-radius: 0 6px 6px 0;
-  font-size: 0.85rem;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.budget-table tbody tr + tr td {
+  border-top: 1px solid rgba(232, 168, 56, 0.08);
+}
+
+.budget-table tbody tr:not(.budget-group):hover td {
+  background: rgba(245, 240, 230, 0.04);
+}
+
+.budget-group td {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--amber-glow);
-  margin-bottom: 0.65rem;
+  background: rgba(15, 36, 25, 0.45);
+  text-align: left;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+}
+
+.budget-table td:last-child {
+  color: var(--cream);
+  font-weight: 600;
+}
+
+.budget-table .budget-note {
+  color: var(--text-muted);
+  font-weight: 400;
+  font-style: italic;
 }
 
 /* Gallery */
@@ -678,4 +737,6 @@ body {
   .seat-row .aisle { width: 16px; }
   .gallery { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
   .gallery-placeholder span { font-size: 1.25rem; }
+  .budget-table th,
+  .budget-table td { padding: 0.55rem 0.75rem; }
 }
