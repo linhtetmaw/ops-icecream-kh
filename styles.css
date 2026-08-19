@@ -594,6 +594,70 @@ body {
 .seat.selected { background: linear-gradient(135deg, var(--amber), var(--campfire)); border-color: var(--amber-glow); color: var(--forest-dark); }
 .seat.selected .seat-num { color: var(--forest-dark); opacity: 0.7; }
 
+.rooms-heading {
+  margin-top: 2.25rem;
+}
+
+.rooms {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.85rem;
+  text-align: left;
+}
+
+.room-card.suite { grid-column: span 2; }
+.room-card.tent { grid-column: span 3; }
+
+.room-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 0.9rem 1rem 1rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+}
+
+.room-kind {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.3rem;
+}
+
+.room-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--cream);
+  line-height: 1.2;
+  margin-bottom: 0.7rem;
+}
+
+.room-card ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.room-card li {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  background: rgba(15, 36, 25, 0.45);
+  border-radius: 999px;
+  padding: 0.22rem 0.55rem;
+}
+
+.room-card.berry { border-color: rgba(232, 120, 160, 0.35); }
+.room-card.berry .room-kind { color: #f0a3c0; }
+.room-card.swirl { border-color: rgba(245, 197, 99, 0.35); }
+.room-card.cocoa { border-color: rgba(196, 140, 90, 0.4); }
+.room-card.cocoa .room-kind { color: #d4a574; }
+.room-card.choco { border-color: rgba(150, 96, 64, 0.45); }
+.room-card.cookies { border-color: rgba(245, 240, 230, 0.28); }
+
 /* Timeline */
 .timeline {
   position: relative;
@@ -839,6 +903,10 @@ body {
 
   .seat-plans { gap: 1.5rem; }
 
+  .rooms { grid-template-columns: 1fr 1fr; }
+  .room-card.suite,
+  .room-card.tent { grid-column: span 1; }
+
   .deck-arrow { width: 36px; height: 36px; font-size: 1.25rem; }
   .deck-prev { left: 0.5rem; }
   .deck-next { right: 0.5rem; }
@@ -858,4 +926,5 @@ body {
   .gallery-placeholder span { font-size: 1.25rem; }
   .budget-table th,
   .budget-table td { padding: 0.55rem 0.75rem; }
+  .rooms { grid-template-columns: 1fr; }
 }
