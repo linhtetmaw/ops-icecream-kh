@@ -13,7 +13,7 @@ const SEAT_NAMES = {
      1: 'AUNG.K.M',
      2: 'AYE MYAT',
      3: 'BOBA',
-     4: 'CHUE',
+     4: 'CHUE + KMH',
      5: 'EI',
      6: 'ERIC',
      7: 'JACOB',
@@ -54,6 +54,7 @@ const CAR4_LAYOUT = [
 
 const TRIP_DAY = 12;
 const DEPART_AT = new Date('2026-09-12T10:00:00+07:00');
+const BLOOM_START = new Date('2026-08-01T00:00:00+07:00');
 
 const STORAGE_KEY = 'burmese-fam-trip-seats';
 let selectedSeats = loadSelections();
@@ -289,9 +290,22 @@ function pad(value) {
   return String(value).padStart(2, '0');
 }
 
+function bloomProgress() {
+  const span = DEPART_AT.getTime() - BLOOM_START.getTime();
+  const elapsed = Date.now() - BLOOM_START.getTime();
+  return Math.min(1, Math.max(0, elapsed / span));
+}
+
+function updateRose() {
+  const rose = document.getElementById('tripRose');
+  if (!rose) return;
+  rose.style.setProperty('--bloom', bloomProgress().toFixed(4));
+}
+
 function renderCountdown() {
   const root = document.getElementById('departCountdown');
   if (!root) return;
+  updateRose();
 
   const diff = DEPART_AT.getTime() - Date.now();
   if (diff <= 0) {
